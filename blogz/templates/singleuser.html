@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if not user_blogs %}
+    <p>No blog posts yet</p>
+    {% else %}
+
+        <ul id = "blog-list">
+            {% for blog in user_blogs %}
+            <li>
+                <h2 class = "blog-heading">
+                        <a href="/blog?id={{ blog.id }}">
+                        {{blog.title}}
+                    </a>
+                </h2>
+                <p class = "blog-body-text">
+                        {{blog.body}}
+                </p>
+                <p class = "blog-date-created">
+                    {{blog.date}}
+                    <br>
+                    <span class = "written-by">
+                        Written by:      
+                        <a href="/?user={{ blog.owner.id }}">
+                            {{blog.owner.username}}
+                        </a>
+                    </span>
+                </p>
+            </li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+{% endblock %}

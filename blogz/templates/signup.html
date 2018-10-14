@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create An Account</h1>
+<p>Already have an account? <a href="/login">Sign in here.</a></p>
+<form action="/signup" method="post">
+    <label>
+        <p>
+        <span>
+        Username
+        <input type="text" name="username" value=" {{ request.form['username'] }} "/>
+        </span>
+        <span class="error">{{ username_error }}</span>
+        <span class="error">{{ duplicate_username_error }}</span>
+        </p>
+        <p>
+        <span>
+        Password
+        <input type="password" name="password"/>
+        </span>
+        <span class="error"> {{ password_valid_error }} </span>
+        </p>
+        <p>
+        <span>
+        Verify Password
+        <input type="password" name="verify-password"/>
+        </span>
+        <span class="error"> {{ password_match_error }} </span>
+        </p>
+    </label>
+    <input type="submit" value="Signup"/>
+</form>
+{% endblock %}

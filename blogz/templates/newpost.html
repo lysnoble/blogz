@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Blog Post</h1>
+    <form method='POST'>
+        <p>
+        <label>
+            Title:
+            <br>
+            <input id="blog-title" type="text" name='title' value="{{ request.form['title']}}"/>
+            <br> 
+            <span class = "error">
+            {{ blog_title_blank_error }}
+            </span>
+        </label>
+        </p>
+        <p>
+        <label>
+            Blog Post:
+            <br>
+            <textarea id="blog-body" type="text" name='body' value="{{ request.form['body'] }}" ></textarea>
+            <br>
+            <span class = "error">
+            {{ blog_body_blank_error }}
+            </span>
+        </label>
+        <p>
+        <input type="submit" value='Add Blog Post' />
+    </form>
+    <hr />
+
+{% endblock %}
