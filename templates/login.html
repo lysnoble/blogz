@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+        <h1>Log In</h1>
+        <style>.error { color: red; }</style>
+        <form method="POST">
+            <label>Username: 
+                <input name="username" type="text" value='{{request.form["username"]}}'/>
+                <span class="error">{{username_error}}</span>
+            </label><br/>
+            <label>Password: 
+                <input name="password" type="password"/>
+                <span class="error">{{password_error}}</span>
+            </label><br/>
+            <p><input type="submit"/></p>
+        </form>
+        <a href="/signup">Don't have an account? Register here!</a>
+{% endblock %}
